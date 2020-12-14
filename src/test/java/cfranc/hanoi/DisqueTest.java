@@ -18,6 +18,14 @@ public class DisqueTest {
 		assertEquals(-1, petit.compareTo(moyen));
 		assertEquals(-1, moyen.compareTo(grand));
 		//TODO : à compléter
+        assertEquals(-1, petit.compareTo(grand));
+        assertEquals(1, grand.compareTo(petit));
+        assertEquals(1, moyen.compareTo(petit));
+        assertEquals(1, grand.compareTo(moyen));
+        assertEquals(0, petit.compareTo(petit));
+        assertEquals(0, moyen.compareTo(moyen));
+        assertEquals(0, grand.compareTo(grand));
+        
 	}
 
 	@Test
@@ -26,4 +34,61 @@ public class DisqueTest {
 		int actual = dSmall.compareTo(dMedium);
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void compareTo_MediumTall_Negative(){
+		int expected = -1;
+		int actual = dMedium.compareTo(dTall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_SmallTall_Negative(){
+		int expected = -1;
+		int actual = dSmall.compareTo(dTall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_TallSmall_Positive(){
+		int expected = 1;
+		int actual = dTall.compareTo(dSmall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_MediumSmall_Positive(){
+		int expected = 1;
+		int actual = dMedium.compareTo(dSmall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_TallMedium_Positive(){
+		int expected = 1;
+		int actual = dTall.compareTo(dMedium);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_TallTall_Neutre(){
+		int expected = 0;
+		int actual = dTall.compareTo(dTall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_SmallSmall_Neutre(){
+		int expected = 0;
+		int actual = dSmall.compareTo(dSmall);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void compareTo_MediumMedium_Neutre(){
+		int expected = 0;
+		int actual = dMedium.compareTo(dMedium);
+		assertEquals(expected, actual);
+	}
+	
 }
